@@ -184,7 +184,7 @@ function main(params) {
   // 插入分组
   const groups = params["proxy-groups"] = [];
   groups.unshift(HongKong, TaiWan, Japan, Korea, Singapore, America, Others, Auto, Balance, Fallback);
-  groups.unshift(Final, Proxy, Global, Mainland, ArtIntel, YouTube, BiliBili, Streaming, Telegram, Google, Games);
+  groups.unshift(Proxy, Global, Mainland, ArtIntel, YouTube, BiliBili, Streaming, Telegram, Google, Games, Final);
 
   // 规则
   const rules = [
