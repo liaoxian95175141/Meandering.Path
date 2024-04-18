@@ -3,22 +3,25 @@
 function main(params) {
 
   // 香港地区
-  const hongKongRegex = /香港|HK|Hong|🇭🇰/;
+  const hongKongRegex = /港|澳门|HK|hk|Hong Kong|HongKong|hongkong|MO|HKG|MFM/;
   const hongKongProxies = getProxiesByRegex(params, hongKongRegex);
   // 台湾地区
-  const taiwanRegex = /台湾|TW|Taiwan|Wan|🇨🇳|🇹🇼/;
+  const taiwanRegex = /台|新北|彰化|TW|Taiwan|TPE|KHH/;
   const taiwanProxies = getProxiesByRegex(params, taiwanRegex);
   // 狮城地区
-  const singaporeRegex = /新加坡|狮城|SG|Singapore|🇸🇬/;
+  const singaporeRegex = /新加坡|坡|狮城|SG|Singapore|SIN/;
   const singaporeProxies = getProxiesByRegex(params, singaporeRegex);
   // 日本地区
-  const japanRegex = /日本|JP|Japan|🇯🇵/;
+  const japanRegex = /日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan|Tokyo|NRT|KIX/;
   const japanProxies = getProxiesByRegex(params, japanRegex);
+  // 韩国地区
+  const KoreaRegex = /KR|Korea|KOR|Seoul|首尔|韩|韓|ICN/;
+  const KoreaProxies = getProxiesByRegex(params, KoreaRegex);
   // 美国地区
-  const americaRegex = /美国|US|United States|America|🇺🇸/;
+  const americaRegex = /美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States|ATL|BUF|DFW|EWR|IAD|LAX|MCI|MIA|ORD|PHX|PDX|SEA|SJC/;
   const americaProxies = getProxiesByRegex(params, americaRegex);
   // 其他地区
-  const othersRegex = /^(?!.*(?:香港|HK|Hong|🇭🇰|台湾|TW|Taiwan|Wan|🇨🇳|🇹🇼|新加坡|SG|Singapore|狮城|🇸🇬|日本|JP|Japan|🇯🇵|美国|US|States|America|🇺🇸|自动|故障|流量|官网|套餐|机场|订阅|年|月)).*$/;
+  const othersRegex = /^(?!.*(?:港|澳门|HK|hk|Hong Kong|HongKong|hongkong|MO|HKG|MFM|台|新北|彰化|TW|Taiwan|TPE|KHH|新加坡|坡|狮城|SG|Singapore|SIN|日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan|Tokyo|NRT|KIX|KR|Korea|KOR|Seoul|首尔|韩|韓|ICN|美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States|ATL|BUF|DFW|EWR|IAD|LAX|MCI|MIA|ORD|PHX|PDX|SEA|SJC|自动|故障|流量|官网|套餐|机场|订阅|年|月)).*$/;
   const othersProxies = getProxiesByRegex(params, othersRegex);
   // 所有地区
   const allRegex = /^(?!.*(?:自动|故障|流量|官网|套餐|机场|订阅|年|月|失联|频道)).*$/;
@@ -27,7 +30,8 @@ function main(params) {
   // 香港
   const HongKong = {
     name: "HongKong",
-    type: "url-test",
+    type: "load-balance",
+    strategy: "round-robin",
     url: "http://www.gstatic.com/generate_204",
     icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png",
     interval: 300,
@@ -36,22 +40,11 @@ function main(params) {
     lazy: true,
     proxies: hongKongProxies.length > 0 ? hongKongProxies : ["DIRECT"]
   };
-  // 台湾
-  const TaiWan = {
-    name: "TaiWan",
-    type: "url-test",
-    url: "http://www.gstatic.com/generate_204",
-    icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Taiwan.png",
-    interval: 300,
-    tolerance: 20,
-    timeout: 2000,
-    lazy: true,
-    proxies: taiwanProxies.length > 0 ? taiwanProxies : ["DIRECT"]
-  };
   // 狮城
   const Singapore = {
     name: "Singapore",
-    type: "url-test",
+    type: "load-balance",
+    strategy: "round-robin",
     url: "http://www.gstatic.com/generate_204",
     icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png",
     interval: 300,
@@ -63,7 +56,8 @@ function main(params) {
   // 日本
   const Japan = {
     name: "Japan",
-    type: "url-test",
+    type: "load-balance",
+    strategy: "round-robin",
     url: "http://www.gstatic.com/generate_204",
     icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png",
     interval: 300,
@@ -72,10 +66,37 @@ function main(params) {
     lazy: true,
     proxies: japanProxies.length > 0 ? japanProxies : ["DIRECT"]
   };
+  // 韩国
+  const Korea = {
+    name: "Korea",
+    type: "load-balance",
+    strategy: "round-robin",
+    url: "http://www.gstatic.com/generate_204",
+    icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Korea.png",
+    interval: 300,
+    tolerance: 20,
+    timeout: 2000,
+    lazy: true,
+    proxies: KoreaProxies.length > 0 ? KoreaProxies : ["DIRECT"]
+  };
+  // 台湾
+  const TaiWan = {
+    name: "TaiWan",
+    type: "load-balance",
+    strategy: "round-robin",
+    url: "http://www.gstatic.com/generate_204",
+    icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Taiwan.png",
+    interval: 300,
+    tolerance: 20,
+    timeout: 2000,
+    lazy: true,
+    proxies: taiwanProxies.length > 0 ? taiwanProxies : ["DIRECT"]
+  };
   // 美国
   const America = {
     name: "America",
-    type: "url-test",
+    type: "load-balance",
+    strategy: "round-robin",
     url: "http://www.gstatic.com/generate_204",
     icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png",
     interval: 300,
@@ -111,7 +132,6 @@ function main(params) {
   // 负载均衡
   const Balance = {
     name: "Balance",
-    type: "load-balance",
     url: "http://www.gstatic.com/generate_204",
     icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Available.png",
     interval: 300,
@@ -132,11 +152,11 @@ function main(params) {
   };
 
   // 国外分组
-  const G = ["Proxy", "Auto", "Balance", "Fallback", "HongKong", "TaiWan", "Singapore", "Japan", "America", "Others"];
+  const G = ["Proxy", "Auto", "Balance", "Fallback", "HongKong", "TaiWan", "Singapore", "Japan", "Korea", "America", "Others"];
   // 国内分组
-  const M = ["DIRECT", "Proxy", "Auto", "Balance", "Fallback", "HongKong", "TaiWan", "Singapore", "Japan", "America", "Others"];
+  const M = ["DIRECT", "Proxy", "Auto", "Balance", "Fallback", "HongKong", "TaiWan", "Singapore", "Japan", "Korea", "America", "Others"];
   // AI分组
-  const AI = ["Proxy", "America", "Japan", "Singapore", "TaiWan", "HongKong", "Others"];
+  const AI = ["Proxy", "America", "Japan", "Korea", "Singapore", "TaiWan", "HongKong", "Others"];
 
   // 漏网之鱼
   const Final = { name: "Final", type: "select", proxies: ["DIRECT", "Global", "Proxy"], icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Final.png" };
@@ -162,8 +182,8 @@ function main(params) {
   const Games = { name: "Games", type: "select", proxies: G, icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Game.png" };
   // 插入分组
   const groups = params["proxy-groups"] = [];
-  groups.unshift(HongKong, TaiWan, Japan, Singapore, America, Others, Auto, Balance, Fallback);
-  groups.unshift(Final, Proxy, Global, Mainland, ArtIntel, YouTube, BiliBili, Streaming, Telegram, Google, Games);
+  groups.unshift(HongKong, Japan, Korea, Singapore, TaiWan, America, Others, Auto, Balance, Fallback);
+  groups.unshift(Proxy, Global, Mainland, ArtIntel, YouTube, BiliBili, Streaming, Telegram, Google, Games, Final);
 
   // 规则
   const rules = [
