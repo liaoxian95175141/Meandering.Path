@@ -183,7 +183,7 @@ function main(params) {
   const Games = { name: "Games", type: "select", proxies: G, icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Game.png" };
   // 插入分组
   const groups = params["proxy-groups"] = [];
-  groups.unshift(HongKong, TaiWan, Japan, Korea, Singapore, America, Others, Auto, Balance, Fallback);
+  groups.unshift(HongKong, Japan, Korea, Singapore, TaiWan, America, Others, Auto, Balance, Fallback);
   groups.unshift(Proxy, Global, Mainland, ArtIntel, YouTube, BiliBili, Streaming, Telegram, Google, Games, Final);
 
   // 规则
