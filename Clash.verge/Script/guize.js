@@ -35,8 +35,6 @@ function main(params) {
     url: "http://www.gstatic.com/generate_204",
     icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png",
     interval: 300,
-    tolerance: 20,
-    timeout: 2000,
     lazy: true,
     proxies: hongKongProxies.length > 0 ? hongKongProxies : ["DIRECT"]
   };
@@ -48,8 +46,6 @@ function main(params) {
     url: "http://www.gstatic.com/generate_204",
     icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Taiwan.png",
     interval: 300,
-    tolerance: 20,
-    timeout: 2000,
     lazy: true,
     proxies: taiwanProxies.length > 0 ? taiwanProxies : ["DIRECT"]
   };
@@ -61,8 +57,6 @@ function main(params) {
     url: "http://www.gstatic.com/generate_204",
     icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png",
     interval: 300,
-    tolerance: 20,
-    timeout: 2000,
     lazy: true,
     proxies: singaporeProxies.length > 0 ? singaporeProxies : ["DIRECT"]
   };
@@ -74,8 +68,6 @@ function main(params) {
     url: "http://www.gstatic.com/generate_204",
     icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png",
     interval: 300,
-    tolerance: 20,
-    timeout: 2000,
     lazy: true,
     proxies: japanProxies.length > 0 ? japanProxies : ["DIRECT"]
   };
@@ -87,16 +79,13 @@ function main(params) {
     url: "http://www.gstatic.com/generate_204",
     icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Korea.png",
     interval: 300,
-    tolerance: 20,
-    timeout: 2000,
     lazy: true,
     proxies: KoreaProxies.length > 0 ? KoreaProxies : ["DIRECT"]
   };
   // 美国
   const America = {
     name: "America",
-    type: "load-balance",
-    strategy: "consistent-hashing",
+    type: "url-test",
     url: "http://www.gstatic.com/generate_204",
     icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png",
     interval: 300,
@@ -185,8 +174,8 @@ function main(params) {
   const Games = { name: "Games", type: "select", proxies: P, icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Game.png" };
   // 插入分组
   const groups = params["proxy-groups"] = [];
-  groups.unshift(HongKong, Japan, Korea, Singapore, TaiWan, America, Others, Auto, Balance, Fallback);
-  groups.unshift(Proxy, Global, Mainland, ArtIntel, YouTube, BiliBili, Streaming, Telegram, Google, Games, Final);
+  groups.unshift(HongKong, Singapore, Japan, Korea, TaiWan, America, Others, Auto, Balance, Fallback);
+  groups.unshift(Global, Proxy, Telegram, YouTube, Streaming, Google, Games, Final, ArtIntel, BiliBili, Mainland);
 
   // 规则
   const rules = [
