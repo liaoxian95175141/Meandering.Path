@@ -31,7 +31,8 @@ function main(params) {
   const HongKong = {
     name: "HongKong",
     type: "load-balance",
-    strategy: "consistent-hashing",
+    //strategy: "consistent-hashing",
+    strategy: "round-robin",
     url: "http://www.gstatic.com/generate_204",
     icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png",
     interval: 300,
@@ -42,7 +43,8 @@ function main(params) {
   const TaiWan = {
     name: "TaiWan",
     type: "load-balance",
-    strategy: "consistent-hashing",
+    //strategy: "consistent-hashing",
+    strategy: "round-robin",
     url: "http://www.gstatic.com/generate_204",
     icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Taiwan.png",
     interval: 300,
@@ -53,7 +55,8 @@ function main(params) {
   const Singapore = {
     name: "Singapore",
     type: "load-balance",
-    strategy: "consistent-hashing",
+    //strategy: "consistent-hashing",
+    strategy: "round-robin",
     url: "http://www.gstatic.com/generate_204",
     icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png",
     interval: 300,
@@ -64,7 +67,8 @@ function main(params) {
   const Japan = {
     name: "Japan",
     type: "load-balance",
-    strategy: "consistent-hashing",
+    //strategy: "consistent-hashing",
+    strategy: "round-robin",
     url: "http://www.gstatic.com/generate_204",
     icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png",
     interval: 300,
@@ -75,7 +79,8 @@ function main(params) {
   const Korea = {
     name: "Korea",
     type: "load-balance",
-    strategy: "consistent-hashing",
+    //strategy: "consistent-hashing",
+    strategy: "round-robin",
     url: "http://www.gstatic.com/generate_204",
     icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Korea.png",
     interval: 300,
