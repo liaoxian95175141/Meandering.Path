@@ -30,72 +30,66 @@ function main(params) {
   // 香港
   const HongKong = {
     name: "HongKong",
-    type: "url-test",
+    type: "load-balance",
     url: "http://www.gstatic.com/generate_204",
-    icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png",
+    icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Available.png",
     interval: 300,
-    tolerance: 20,
-    timeout: 2000,
+    strategy: "round-robin",
     lazy: true,
     proxies: hongKongProxies.length > 0 ? hongKongProxies : ["DIRECT"]
   };
   // 台湾
   const TaiWan = {
     name: "TaiWan",
-    type: "url-test",
+    type: "load-balance",
     url: "http://www.gstatic.com/generate_204",
-    icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Taiwan.png",
+    icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Available.png",
     interval: 300,
-    tolerance: 20,
-    timeout: 2000,
+    strategy: "round-robin",
     lazy: true,
     proxies: taiwanProxies.length > 0 ? taiwanProxies : ["DIRECT"]
   };
   // 狮城
   const Singapore = {
     name: "Singapore",
-    type: "url-test",
+    type: "load-balance",
     url: "http://www.gstatic.com/generate_204",
-    icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png",
+    icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Available.png",
     interval: 300,
-    tolerance: 20,
-    timeout: 2000,
+    strategy: "round-robin",
     lazy: true,
     proxies: singaporeProxies.length > 0 ? singaporeProxies : ["DIRECT"]
   };
   // 日本
   const Japan = {
     name: "Japan",
-    type: "url-test",
+    type: "load-balance",
     url: "http://www.gstatic.com/generate_204",
-    icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png",
+    icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Available.png",
     interval: 300,
-    tolerance: 20,
-    timeout: 2000,
+    strategy: "round-robin",
     lazy: true,
     proxies: japanProxies.length > 0 ? japanProxies : ["DIRECT"]
   };
   // 韩国
   const Korea = {
     name: "Korea",
-    type: "url-test",
+    type: "load-balance",
     url: "http://www.gstatic.com/generate_204",
-    icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Korea.png",
+    icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Available.png",
     interval: 300,
-    tolerance: 20,
-    timeout: 2000,
+    strategy: "round-robin",
     lazy: true,
     proxies: KoreaProxies.length > 0 ? KoreaProxies : ["DIRECT"]
   };
   // 美国
   const America = {
     name: "America",
-    type: "url-test",
+    type: "load-balance",
     url: "http://www.gstatic.com/generate_204",
-    icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png",
+    icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Available.png",
     interval: 300,
-    tolerance: 20,
-    timeout: 2000,
+    strategy: "round-robin",
     lazy: true,
     proxies: americaProxies.length > 0 ? americaProxies : ["DIRECT"]
   };
@@ -155,7 +149,7 @@ function main(params) {
   const AI = ["Proxy", "America", "Japan", "Korea", "Singapore", "TaiWan", "HongKong", "Others"];
 
   // 漏网之鱼
-  const Final = { name: "Final", type: "select", proxies: ["DIRECT", "Global", "Proxy"], icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Final.png" };
+  const Final = { name: "Final", type: "select", proxies: ["Global", "Proxy", "DIRECT"], icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Final.png" };
   // 手动选择
   const Proxy = { name: "Proxy", type: "select", proxies: allProxies.length > 0 ? allProxies : ["DIRECT"], icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Proxy.png" };
   // 国外网站
