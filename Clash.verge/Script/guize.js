@@ -18,7 +18,7 @@ function main(params) {
   const KoreaRegex = /KR|Korea|KOR|Seoul|首尔|韩|韓|ICN/;
   const KoreaProxies = getProxiesByRegex(params, KoreaRegex);
   // 美国地区
-  const americaRegex = /美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States|ATL|BUF|DFW|EWR|IAD|LAX|MCI|MIA|ORD|PHX|PDX|SEA|SJC|🇺🇸/;
+  const americaRegex = /HYSTERIA2|美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States|ATL|BUF|DFW|EWR|IAD|LAX|MCI|MIA|ORD|PHX|PDX|SEA|SJC|🇺🇸/;
   const americaProxies = getProxiesByRegex(params, americaRegex);
   // 其他地区
   const othersRegex = /^(?!.*(?:港|澳门|HK|hk|Hong Kong|HongKong|hongkong|MO|HKG|MFM|台|新北|彰化|TW|Taiwan|TPE|KHH|新加坡|坡|狮城|SG|Singapore|SIN|日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan|Tokyo|NRT|KIX|KR|Korea|KOR|Seoul|首尔|韩|韓|ICN|美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States|ATL|BUF|DFW|EWR|IAD|LAX|MCI|MIA|ORD|PHX|PDX|SEA|SJC|自动|故障|流量|官网|套餐|机场|订阅|年|月)).*$/;
@@ -32,7 +32,7 @@ function main(params) {
     name: "HongKong",
     type: "load-balance",
     url: "http://www.gstatic.com/generate_204",
-    icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Available.png",
+    icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png",
     interval: 300,
     strategy: "round-robin",
     lazy: true,
@@ -43,7 +43,7 @@ function main(params) {
     name: "TaiWan",
     type: "load-balance",
     url: "http://www.gstatic.com/generate_204",
-    icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Available.png",
+    icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Taiwan.png",
     interval: 300,
     strategy: "round-robin",
     lazy: true,
@@ -54,7 +54,7 @@ function main(params) {
     name: "Singapore",
     type: "load-balance",
     url: "http://www.gstatic.com/generate_204",
-    icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Available.png",
+    icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png",
     interval: 300,
     strategy: "round-robin",
     lazy: true,
@@ -65,7 +65,7 @@ function main(params) {
     name: "Japan",
     type: "load-balance",
     url: "http://www.gstatic.com/generate_204",
-    icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Available.png",
+    icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png",
     interval: 300,
     strategy: "round-robin",
     lazy: true,
@@ -76,7 +76,7 @@ function main(params) {
     name: "Korea",
     type: "load-balance",
     url: "http://www.gstatic.com/generate_204",
-    icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Available.png",
+    icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Korea.png",
     interval: 300,
     strategy: "round-robin",
     lazy: true,
@@ -87,7 +87,7 @@ function main(params) {
     name: "America",
     type: "load-balance",
     url: "http://www.gstatic.com/generate_204",
-    icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Available.png",
+    icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png",
     interval: 300,
     strategy: "round-robin",
     lazy: true,
